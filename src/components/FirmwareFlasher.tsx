@@ -129,7 +129,7 @@ export function FirmwareFlasher({ locale }: { locale: Locale }) {
 
   return (
     <section className="card flasher">
-      <h2>crossxtch</h2>
+      <h2>yomu</h2>
       <p className="install-note">{t("flashWake", undefined, locale)}</p>
       <p className="install-note">{t("flashKeepsSlot", undefined, locale)}</p>
 

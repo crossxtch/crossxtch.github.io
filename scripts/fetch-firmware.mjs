@@ -2,10 +2,10 @@ import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const repo = "yibeilahei/crossxtch";
+const repo = "crossxtch/yomu-se";
 const names = {
-  x3: "crossxtch-x3.bin",
-  x4: "crossxtch-x4.bin",
+  x3: ["yomu-x3.bin", "crossxtch-x3.bin"],
+  x4: ["yomu-x4.bin", "crossxtch-x4.bin"],
 };
 
 const headers = {
@@ -22,11 +22,12 @@ const outDir = path.join("public", "firmware");
 await mkdir(outDir, { recursive: true });
 
 const devices = {};
-for (const [id, name] of Object.entries(names)) {
-  const asset = release.assets?.find((item) => item.name === name);
+for (const [id, wanted] of Object.entries(names)) {
+  const asset = release.assets?.find((item) => wanted.includes(item.name));
   if (!asset?.browser_download_url) {
-    throw new Error(`${release.tag_name} has no ${name}`);
+    throw new Error(`${release.tag_name} has no ${wanted[0]}`);
   }
+  const name = asset.name;
   const binRes = await fetch(asset.browser_download_url, { headers, redirect: "follow" });
   if (!binRes.ok) throw new Error(`${name}: ${binRes.status}`);
   const bytes = Buffer.from(await binRes.arrayBuffer());

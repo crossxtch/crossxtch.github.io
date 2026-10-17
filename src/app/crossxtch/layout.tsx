@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "lazahata — crossxtch",
-  description: "ブラウザから Xteink X3 / X4 に crossxtch を書き込みます。",
+  title: "lazahata — yomu",
+  description: "ブラウザから Xteink X3 / X4 に yomu を書き込みます。",
 };
 
 export default function CrossxtchLayout({

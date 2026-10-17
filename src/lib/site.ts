@@ -1,5 +1,5 @@
 export const REPO = {
-  crossxtch: "https://github.com/yibeilahei/crossxtch",
+  crossxtch: "https://github.com/crossxtch/yomu-se",
   cookbook: "https://github.com/yibeilahei/cookbook",
 };
 
